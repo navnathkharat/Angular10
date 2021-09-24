@@ -1,0 +1,40 @@
+<form  #employeeForm="ngForm">
+<div class="panel panel-primary">
+   <div class="panel-heading">
+      <h3 class="panel-title">Add Employee</h3>
+   </div>
+   <div class="panel-body">
+      <div class="form-group">
+         <label for="firstname">First Name</label>          
+         <input type="text" class="form-control" id="firstname" required [(ngModel)]="employee.firstName" name="firstName" 
+         #firstnamecontrol="ngModel"/>
+         <span *ngIf="firstnamecontrol.invalid && firstnamecontrol.touched">
+         First name is required.
+         </span>
+      </div>
+      <div class="form-group">
+         <label for="lastname">Last Name</label>
+         <input class="form-control" id="lastname" required [(ngModel)]="employee.lastName" name="lastname"  #lastnamecontrol="ngModel" />
+         <span *ngIf="lastnamecontrol.invalid && lastnamecontrol.touched">
+         Last name is required.
+         </span>
+      </div>
+      <div class="form-group">
+         <label for="contact">Contact</label>
+         <input class="form-control" id="contact" required [(ngModel)] ="employee.contact" name="contact" #contactcontrol="ngModel"/>
+         <span *ngIf="contactcontrol.invalid && contactcontrol.touched">
+            Contact is required
+         </span>
+      </div>
+      <div class="form-group">
+         <label for="Age">Age</label>
+         <input class="form-control" id="age" [(ngModel)]="employee.age" name="age" #agecontrol="ngModel" />         
+      </div>
+       
+   </div>
+   <div class="panel-footer">         
+      <button type="submit" (click)="saveEmployee()" [disabled]="employeeForm.invalid" class="btn btn-success">Submit</button>
+      &nbsp;<button type="button" (click)="cancel()" class="btn btn-default">Cancel</button>
+   </div>
+</div>
+</form>

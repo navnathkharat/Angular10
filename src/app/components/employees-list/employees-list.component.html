@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+    <!-- <a href="#" class="navbar-brand">bezKoder</a> -->
+    <div class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a routerLink="employees" class="nav-link">Employees</a>
+      </li>   
+      <li class="nav-item">        
+        <a (click)="editEmployee(0)" class="nav-link">Add Employee</a>
+      </li>   
+      <!-- <li class="nav-item">
+        <a routerLink="edit-employee" class="nav-link">Edit Employee</a>
+      </li>     -->
+    </div>
+  </nav>
+
+<div class="container">
+<table class="table" id="employees">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>        
+            <th>Contact</th>
+            <th>Age</th>
+            <th>Salary</th>
+            <th>Created Date</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+<tbody>
+    <tr *ngFor="let employee of employees">
+        <td>
+            {{employee.id}}
+        </td>
+        <td>
+            {{employee.firstName}}
+        </td>
+        <td>
+            {{employee.lastName}}
+        </td>
+        <td>
+            {{employee.contact}}
+        </td>
+        <td>
+            {{employee.age}}
+        </td>
+        <td>
+            {{employee.salary}}
+        </td>
+        <td>
+            {{employee.createdDate | date: 'dd-MM-yyyy'}}
+        </td>
+        <td>
+            <button type="button" (click)="editEmployee(employee.id)" class="btn btn-primary">Edit</button> &nbsp;
+            <button type="button" (click)="deleteEmployee(employee.id)" class="btn btn-danger">Delete</button>             
+        </td>
+        </tr>
+</tbody>
+</table>
+</div> 
